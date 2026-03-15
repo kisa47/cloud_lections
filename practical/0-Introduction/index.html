@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<title>Введение в облачные технологии</title>
+	<meta name="description" content="облачные технологии, облачные вычисления, публичное облако, частное облако, гибридное облако, IaaS, SaaS, PaaS">
+	<meta name="keywords" content="облака, IaaS, PaaS, SaaS">
+	<meta name="author" content="">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="../../css/bundle.min.css">
+    <link rel="stylesheet" href="../../css/default.min.css">
+    <script src="../../js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+	<!--[if lt IE 9]>
+		<script src="../../js/html5shiv.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<section>
+					<h1>Инструментарий</h1>
+					<h3>Облачные технологии</h3>
+					<p>
+						<small>Сурцов Владимир Владимирович</small>
+					</p>
+				</section>
+				<section>
+					<h2>Практические задания</h2>
+					<nav id="presentable-toc" class="table-content"></nav>
+				</section>
+			</section>
+             <section>
+				<section>
+					<h2>Операционная система Linux (Debian)</h2>
+				</section>
+				<section>
+					<h3>Запуск и DualBoot</h3>
+					<blockquote>
+                        Операционные системы семейства Linux можно устанавливать "рядом" с ОС Windows.
+                        При этом загрузчик Grub определяет наличие установленной системы Windows в момент настройки и позволяет осуществлять запуск обе операционные системы
+                        с одного носителя (жесткого диска) без необходимости выбирать источник в BIOS/UEFI. В ходе выполнения работ мы будем использовать операционную систему Debian. 
+                    </blockquote>
+				</section>
+				<section>
+					<h3>Запуск и DualBoot</h3>
+					<blockquote>
+                        Так как настроен автоматический запуск ОС Windows,
+                        поэтому после включения и появления окна загрузчика Grub у вас есть 5 секунд на отмену автоматичееской загрузки.
+                        Для этого необходимо выбрать пункт Debian "GNU/Linux" и подтвердить выбор нажатием клавиши "Enter".
+                    </blockquote>
+                    <img src="img/grub.png" alt="" height="400">
+                </section>
+                <section>
+					<h3>Вход в систему</h3>
+					<blockquote>
+                        Вход в систему осуществляем как пользователь b415 с паролем "123"
+                    </blockquote>
+                    <img src="img/login.png" alt="" height="400">
+                </section>
+                <section>
+					<h3>Настройка GIT</h3>
+					<blockquote>
+                        Для корректного отображения автора фиксации в СКВ необходимо задать пользователя git. Для удобства сделано окно для ввода имени пользователя.
+                    </blockquote>
+                    <img src="img/git-settings.png" alt="" height="400">
+                </section>
+                <section>
+					<h3>Запуск программ в GUI</h3>
+					<blockquote>
+                        Для получения списка графических приложений необходимо перейти к выбору рабочих столов нажать клавишу SUPER (Wondows) или кноку в верхнем левом углу (цифра 1) и перейти в список приложений (цифра 2)
+                    </blockquote>
+                    <img src="img/load-programms.png" alt="" height="400">
+                </section>
+			</section>
+			<section>
+				<section>
+					<h2>Терминал</h2>
+				</section>
+				<section>
+					<h3>Открытие в GUI</h3>
+					<blockquote>
+                        Для открытия терминала необходимо в списке приложений выбрать Терминал (Terminal).
+                    </blockquote>
+                    <img src="img/terminal_open.png" alt="" height="400">
+				</section>
+				<section>
+					<h3>Основные возможности</h3>
+					<blockquote>
+                        Терминал в Linux (командная строка, CLI) — это программа, с помощью которой пользователь взаимодействует с операционной системой через интерфейс
+                        командной строки. Терминал обеспечивает прямой доступ к базовой системе и может использоваться для решения широкого спектра задач: выполнять команды,
+                        перемещаться по файлам, устанавливать пакеты программного обеспечения, автоматизировать повторяющиеся задачи
+                        (создавать скрипты и запускать их из командной строки) и другие. 
+                    </blockquote>
+                </section>
+                <section>
+					<h3>Абсолютные пути</h3>
+                    <blockquote>
+                        Абсолютные пути указывают полное местоположение файла (в том числе директории, так как директория в Linux - тоже файл) от корневой директории (/).
+                        Всегда начинаются с прямого слеша (/).
+                        Показывают точное расположение файла в системе и не зависят от того, где находится пользователь.
+                        Система начинает поиск с корня, каждая директория в пути указывается шаг за шагом, поиск продолжается, пока не будет достигнут целевой файл.
+                    </blockquote>
+                    <pre><code class="bash">cat /home/b415/.gitconfig</code></pre>
+				</section>
+                <section>
+					<h3>Относительные пути</h3>
+                    <blockquote>
+                        Относительные пути указывают расположение файла относительно текущего положения. Могут адаптироваться к изменениям в текущем рабочем каталоге,
+                        что делает их удобными для написания сценариев, разработки и управления файлами в пределах ограниченной области.
+
+                        Чтобы узнать текущего положение необходимо выполнить команду "pwd".
+                    </blockquote>
+                    <pre><code class="bash">cd /home/b415/ && cat .gitconfig</code></pre>
+				</section>
+                <section>
+					<h3>Основные пути в Linux</h3>
+                    <pre><code class="bash">/ # корень или root, начала всего</code></pre>
+                    <pre><code class="bash">. # текущая директория</code></pre>
+                    <pre><code class="bash">.. # родительская директория</code></pre>
+                    <pre><code class="bash">/home/username # домашняя директория пользователя</code></pre>
+                    <pre><code class="bash">/root # домашняя директория суперпользователя root</code></pre>
+                    <pre><code class="bash">/usr # файлы только для чтения (неизменяемые)</code></pre>
+				</section>
+                <section>
+					<h3>Основные пути в Linux</h3>
+                    <pre><code class="bash">/bin /usr/bin # базовые команды доступные всем </code></pre>
+                    <pre><code class="bash">/sbin /usr/sbin # базовые команды доступные суперпользователю</code></pre>
+                    <pre><code class="bash">/boot # файлы необходимы для загрузки системы</code></pre>
+                    <pre><code class="bash">/dev # файлы устройств</code></pre>
+                    <pre><code class="bash">/etc # файлы конфигурации</code></pre>
+				</section>
+                 <section>
+					<h3>Основные пути в Linux</h3>
+                    <pre><code class="bash">/lib # разделяемые библиотеки</code></pre>
+                    <pre><code class="bash">/var # файлы которые в процессе выполнения программ изменяются</code></pre>
+                    <pre><code class="bash">/var/log # хранение логов</code></pre>
+                    <pre><code class="bash">/opt # стороннее ПО не входящее в состав дистрибутива</code></pre>
+                    <pre><code class="bash">/proc # виртуальная ФС предоставляющая доступ к внутренним структурам ядра</code></pre>
+                    <pre><code class="bash">/tmp # временные файлы, которые удаляются при перезагрузке</code></pre>
+				</section>
+                <section>
+					<h3>Основные комнды Linux</h3>
+                    <pre><code class="bash">cd directory # перейти в директорию</code></pre>
+                    <pre><code class="bash">pwd # текущая директория</code></pre>
+                    <pre><code class="bash">whoami # текущий пользователь</code></pre>
+                    <pre><code class="bash">touch file # создать пустой файл</code></pre>
+                    <pre><code class="bash">rm file # удалить файл (с ключами можно и директории)</code></pre>
+                    <pre><code class="bash">mv old new # переместить и/или переименовать</code></pre>
+                    <pre><code class="bash">ls directory # содержимое директории</code></pre>
+				</section>
+                <section>
+					<h3>Основные комнды Linux</h3>
+                    <pre><code class="bash">cat file # прочитать содержимое файла</code></pre>
+                    <pre><code class="bash">grep pattern file # текстовый поиск</code></pre>
+                    <pre><code class="bash">find # поиск файлов</code></pre>
+                    <pre><code class="bash">echo text # вывести текст в stdout</code></pre>
+                    <pre><code class="bash">reboot # перезагрузить узел</code></pre>
+                    <pre><code class="bash">shutdown # выключить узел</code></pre>
+				</section>
+                <section>
+					<h3>Основные комнды Linux</h3>
+                    <pre><code class="bash">less file # прочитать содержимое файла с возможностью листать</code></pre>
+                    <pre><code class="bash">head file # посмотреть начало файла</code></pre>
+                    <pre><code class="bash">tail file # посмотреть конец файла</code></pre>
+                    <pre><code class="bash">sort file # сортировка строк</code></pre>
+                    <pre><code class="bash">nano file # простой текстовый редактор</code></pre>
+                    <pre><code class="bash">vim file # пролвинутый редактор для выхода нажать ESC, потом : и наконец q :)</code></pre>
+                    <pre><code class="bash">mc # псевдографический файловый менеджер</code></pre>
+				</section>
+                <section>
+					<h3>Основные сочетания клавиш в терминале</h3>
+                    <br>Ctrl+C - отменить действие (очистить строку)</br>
+                    <br>Ctrl+D - выйти из терминала при чистой строке</br>
+                    <br>Ctrl+R - поиск по истории команд</br>
+				</section>
+                <section>
+					<h3>Стандартные вводы и выводы</h3>
+                    <br>StdIn - стандартный ввод команды (номер 0)</br>
+                    <br>StdOut - стандартный вывод команды (номер 1)</br>
+                    <br>StdErr - стандартный поток ошибок (номер 2)</br>
+				</section>
+                <section>
+					<h3>Перенаправление ввода и вывода</h3>
+                    <pre><code class="bash">pwd > file #  перенапрвляет stdout в файл с перезаписью</code></pre>
+                    <pre><code class="bash">whoami >> file # перенапрвляет stdout в файл без перезаписи (дописывает)</code></pre>
+                    <pre><code class="bash">sort < names.txt # перенаправление содержимого файла в StdIn команды</code></pre>
+                    <pre><code class="bash">command > cat 2>&1 # перенаправить StdErr в StdOut</code></pre>
+                    <pre><code class="bash">find . | sort # перенаправление StdOut предыдущей команды в StdIn следующей команды</code></pre>
+				</section>
+                <section>
+					<h3>Коды выхода</h3>
+                    <br>0 - успешное выполнение</br>
+                    <br>1..255 - во время выполнения команды произошла ошибка</br>
+                    <pre><code class="bash">true; echo $? # обращение к переменной, которая хранит код выхода предыдущей команды</code></pre>
+                    <pre><code class="bash">true && echo "ok" # выполнить команду если предыдущая завершилась с кодом выхода равным 0</code></pre>
+                    <pre><code class="bash">false || echo "error" # выполнить команду если предыдущая завершилась с ошибкой</code></pre>
+				</section>
+                <section>
+					<h3>Переменные</h3>
+                    <pre><code class="bash">FOO="foo" # присвоение переменной значения</code></pre>
+                    <pre><code class="bash">BAR=$(pwd) # присвоить переменной значение из StdOut команды</code></pre>
+                    <pre><code class="bash">echo $FOO ; echo ${FOO}bar # использование переменной</code></pre>
+                    <pre><code class="bash">if [[ $FOO == $BAR ]]; then # сравнение переменых
+    echo "true" # если истина
+else
+    echo "false" # если лож
+fi                  </code></pre>
+				</section>
+			</section>
+            <!-- <section>
+                <section>
+					<h2>Система контроля версий</h2>
+				</section>
+                <section>
+					<h3>GIT</h3>
+					<blockquote>
+                        Git — распределённая система контроля версий (СКВ), которая позволяет отслеживать и записывать любые
+                        изменения в наборе файлов и возвращаться к предыдущим версиям проекта. Позволяет получать и отправлять изменения.
+                    </blockquote>
+				</section>
+                <section>
+					<h3>Создание git репозитория</h3>
+					<pre><code class="bash">mkdir directory && cd directory # создать и перейти в директорию</code></pre>
+                    <pre><code class="bash">git init # инициализировать пустой репозиторий</code></pre>
+				</section>
+                <section>
+					<h3>Создание git репозитория</h3>
+					<pre><code class="bash">mkdir directory && cd directory # создать и перейти в директорию</code></pre>
+                    <pre><code class="bash">git init # инициализировать пустой репозиторий</code></pre>
+				</section>
+
+            </section> -->
+            <section>
+                <section>
+					<h2>IDE</h2>
+				</section>
+                <section>
+					<h3>Visual Studio Code (VS Code)</h3>
+					<blockquote>
+                        Visual Studio Code (VS Code) — текстовый редактор, разработанный Microsoft для Windows, Linux и macOS.
+                        Позиционируется как «лёгкий» редактор кода для кроссплатформенной разработки веб- и облачных приложений. 
+                    </blockquote>
+				</section>
+                <section>
+					<h3>Запуск VS Code</h3>
+					<blockquote>
+                        Для открытия терминала необходимо в списке приложений выбрать Visual Studio Code.
+                    </blockquote>
+                    <img src="img/vscode_open.png" alt="" height="400">
+				</section>
+                <section>
+					<h3>Открытие директории для работы</h3>
+					<blockquote>
+                        Необходимо перейти в встроенный "Проводник" ("Explorer") и нажать открыть "Open Folder".
+                    </blockquote>
+                    <img src="img/vscode_open_folder.png" alt="" height="400">
+				</section>
+                <section>
+					<h3>Навигация по файлам и директориям</h3>
+					<blockquote>
+                        После открытия директории в встроенном проводнике будет будет указано дерево файлов.
+                    </blockquote>
+                    <img src="img/vscode_open_folder.png" alt="" height="400">
+				</section>
+            </section>
+		</div>
+	</div>
+	<aside id="presentable-icon" class="revealjs">
+		<a title="Содержание лекции" href="#/0/1">
+			<i class="fa fa-list-ul fa-2x"></i>
+		</a>
+	</aside>
+	<script src="../../js/bundle.min.js"></script>
+</body>
+
+</html>
